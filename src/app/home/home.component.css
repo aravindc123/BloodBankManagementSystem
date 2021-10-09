@@ -1,0 +1,7 @@
+.crouselImage{
+    height: 400px;
+}
+.notifiationArea{
+    width: 100%; 
+    overflow-x: scroll(or auto);
+}
