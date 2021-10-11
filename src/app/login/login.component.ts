@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder , FormGroup , Validators  } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   active = 1;
+  loginForm! : FormGroup; 
+  submitted = false;
 
-  activeClass = "text-dark fw-bold linkText linkTextActive"
-  inactiveClass = "text-dark fw-bold linkText"
 
-  constructor() { }
+  constructor(private formBuilder : FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      username : ['',Validators.required], 
+      password : ['',Validators.required]
+    })
+   }
 
   ngOnInit(): void {
+  }
+
+  get form(){
+    return this.loginForm.controls; 
   }
 
   changeAuthAdmin(){
@@ -28,5 +38,10 @@ export class LoginComponent implements OnInit {
     this.active = 3;
   }
 
-
+  onSubmit(){
+    this.submitted = true;
+    if(this.loginForm.invalid){
+      return;
+    }
+  }
 }

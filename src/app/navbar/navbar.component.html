@@ -1,56 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow p-3 ">
     <div class="container-fluid">
-      <a class="navbar-brand text-light fw-bold" href="">Blood Value</a>
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <form class="d-flex">
-            
+      <a class="navbar-brand text-light fw-bold" href=""><span class="text-danger">Blood</span> Value</a>
+       
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link active text-light" aria-current="page" routerLink = "">Home</a>
-                    </li>
-                    
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Services
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                      </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">About Us</a>
-                      </li>
-                      <!-- <ng-template > -->
-                      <li class="nav-item dropdown" *ngIf = "active == 0; else loginBlock">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          User
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                      </li>
-                    <!-- </ng-template> -->
-
-                    <ng-template #loginBlock>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" routerLink = "/Login">Login</a>
-                          </li>
-                    </ng-template>
-                      
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link active text-light" aria-current="page" routerLink = "">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Services
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" routerLink = "/SearchDonors">Search Donors</a></li>
+                    <li><a class="dropdown-item" routerLink = "/SearchBloodBank">Search Blood Banks</a></li>
+                  
                   </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#">About Us</a>
+                </li>
+                <li class="nav-item dropdown" *ngIf = "active == 0; else loginBlock">
+                  <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    User
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+              <!-- </ng-template> -->
+
+              <ng-template #loginBlock>
+                  <li class="nav-item">
+                      <a class="nav-link text-light" routerLink = "/Login">Login</a>
+                    </li>
+              </ng-template>
+              </ul>
                
         </div>
-        </form>
+      
       
     </div>
   </nav>
