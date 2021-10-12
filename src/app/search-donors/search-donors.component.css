@@ -7,3 +7,11 @@
 	font-weight: bold;
 	color: #0277BD;
 }
+
+table {
+    width: 100%;
+  }
+
+  .spacer{
+    height: 20px;
+}

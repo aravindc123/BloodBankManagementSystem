@@ -63,11 +63,11 @@
               <div class="form-floating mb-3">
                 <input type="text" placeholder="Username" class="form-control textBox" formControlName = "username" [ngClass]="{ 'is-invalid': submitted && form.username.errors }" />
          <div *ngIf="submitted && form.username.errors" class="invalid-feedback">
-          <div *ngIf="form.username.errors.required" class="text-warning">Username  is required</div>
+          <div *ngIf="form.username.errors.required" class="text-warning bg-light">Username  is required</div>
       </div>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" placeholder="Password" class="form-control textBox" formControlName = "password" [ngClass]="{ 'is-invalid': submitted && form.password.errors }"/>
+                <input type="password"  placeholder="Password" class="form-control textBox" formControlName = "password" [ngClass]="{ 'is-invalid': submitted && form.password.errors }"/>
       <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
         <div *ngIf="form.password.errors.required" class="text-warning">Password  is required</div>
     </div>

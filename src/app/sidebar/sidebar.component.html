@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper position-fixed">
     <!-- Sidebar  -->
     <nav id="sidebar" [ngClass] = "toggle ? '' : 'active'">
         <div class="sidebar-header">
@@ -7,13 +7,13 @@
 
         <ul class="list-unstyled components">
             <li>
-                <a routerLink = "/admin/">Manage Donors</a>
+                <a routerLink = "/admin" routerLinkActive = "activeClass"  [routerLinkActiveOptions]="{exact: true}">Manage Donors</a>
             </li>
             <li>
-                <a routerLink="/admin/ManageBloodBanks">Manage Blood Banks</a>
+                <a routerLink="/admin/ManageBloodBanks" routerLinkActive = "activeClass">Manage Blood Banks</a>
             </li>
             <li>
-                <a routerLink="/admin/AddNotification">Add Notifications</a>
+                <a routerLink="/admin/AddNotification" routerLinkActive = "activeClass">Add Notifications</a>
             </li>
         </ul>
 

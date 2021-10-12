@@ -19,6 +19,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ManageDonorsComponent } from './manage-donors/manage-donors.component';
 import { ManageBloodBanksComponent } from './manage-blood-banks/manage-blood-banks.component';
 import { AddNotificationComponent } from './add-notification/add-notification.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,13 @@ import { AddNotificationComponent } from './add-notification/add-notification.co
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
