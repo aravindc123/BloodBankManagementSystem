@@ -1,4 +1,4 @@
-/* .col-example {
+.col-example {
     padding: 1rem;
     background-color: #33b5e5;
     border: 2px solid #fff;
@@ -43,7 +43,7 @@
   
   .linkTextActive{
     background-color: rgba(255, 255, 255,1);
-  } */
+  }
   .loginBox{
     
   background-color: rgba(0,0,0,0.1);

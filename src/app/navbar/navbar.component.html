@@ -21,24 +21,23 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="#">About Us</a>
+                  <a class="nav-link text-light" routerLink = "/AboutUs">About Us</a>
                 </li>
-                <li class="nav-item dropdown" *ngIf = "active == 0; else loginBlock">
+                <li class="nav-item dropdown" *ngIf = "UserLoggedIn; else loginBlock">
                   <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    User
+                    {{ getRole }}
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li *ngIf = "getRole == 'User'"><a class="dropdown-item" routerLink = "/DonorProfile">Profile</a></li>
+                    <li><a class="dropdown-item" (click) = "logout()">Logout</a></li>
+                
                   </ul>
                 </li>
               <!-- </ng-template> -->
 
               <ng-template #loginBlock>
                   <li class="nav-item">
-                      <a class="nav-link text-light" routerLink = "/Login">Login</a>
+                    <a class="nav-link text-light" routerLink = "/Login">Login</a>
                     </li>
               </ng-template>
               </ul>

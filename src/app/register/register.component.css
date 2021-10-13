@@ -1,0 +1,60 @@
+.col-example {
+    padding: 1rem;
+    background-color: #33b5e5;
+    border: 2px solid #fff;
+    color: #fff;
+    text-align: center;
+  }
+
+  .loginBox{
+        padding: 50px 40px;
+        border-radius: 30px;
+      background-color: rgba(0,0,0,0.1);
+  }
+
+  .bg{
+      width: 100vw;
+      height: 100vh; 
+      background-image: url("/assets/blood-bank.jpg") ;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .textBox{
+      height: 50px;
+      border-radius: 30px;
+  }
+
+  .textButton{
+      padding: 10px 30px;
+      border-radius: 20px;
+  }
+
+  .linkText{
+    padding: 10px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .linkText:hover{
+      background-color: rgba(255, 255, 255,1);
+      cursor: pointer;
+  }
+  
+  .linkTextActive{
+    background-color: rgba(255, 255, 255,1);
+  }
+  .link1
+  {
+      text-decoration: none;
+      color: black;
+  }
+  #btn1
+  {
+      border-radius: 25px;
+  }
+  #text
+  {
+    border-radius: 20px;
+  }
+

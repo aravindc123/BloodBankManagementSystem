@@ -25,6 +25,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { BloodStocksComponent } from './blood-stocks/blood-stocks.component';
+import { AddCampComponent } from './add-camp/add-camp.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { DonorProfileComponent } from './donor-profile/donor-profile.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { MatButtonModule } from '@angular/material/button';
     SidebarComponent,
     ManageDonorsComponent,
     ManageBloodBanksComponent,
-    AddNotificationComponent
+    AddNotificationComponent,
+    BloodStocksComponent,
+    AddCampComponent,
+    AboutUsComponent,
+    DonorProfileComponent
   ],
   imports: [
     BrowserModule,

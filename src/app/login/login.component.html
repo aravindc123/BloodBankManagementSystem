@@ -1,5 +1,6 @@
-<!-- <div class="bg">
+<div class="bg">
 <h1 class="text-dark d-flex  justify-content-center m-4">Login</h1>
+<div class="spacer"></div>
 <div class="d-flex align-items-center justify-content-center" style="height: 350px">
 
  <div class=" loginBox">
@@ -14,7 +15,7 @@
       <a  [ngClass] = "active == 3 ? 'text-dark fw-bold linkText linkTextActive' : 'text-dark fw-bold linkText'" (click) = "changeAuthBloodBank()">BLOODBANK</a>
     </div>
    </div>
-   <form [formGroup] = "loginForm" (ngSubmit) = "onSubmit()" class="form-group">
+   <form [formGroup] = "loginForm" (ngSubmit) = "onSubmit(loginForm.value)" class="form-group">
    <div class="row justify-content-center d-flex  p-2">
        <div class="col-md-10">
          <input type="text" placeholder="Username" class="form-control textBox" formControlName = "username" [ngClass]="{ 'is-invalid': submitted && form.username.errors }" >
@@ -35,12 +36,17 @@
   <div class="col-md-4">
    <input type="submit" value="Login" class="btn btn-primary textButton">
   </div>
+  <div class="d-grid">
+    <a class="btn btn-google btn-login text-uppercase fw-bold" routerLink = "/Register">
+      Don't Have an Account Yet ? Register
+    </a>
+  </div>
 </div>
   </form>
  </div>
 </div>
-</div> -->
-<div class="bg">
+</div>
+<!-- <div class="bg">
   <div class="container ">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -78,9 +84,9 @@
               </div>
               <hr class="my-4">
               <div class="d-grid mb-2">
-                <button class="btn btn-google btn-login text-uppercase fw-bold" type="submit">
+                <a class="btn btn-google btn-login text-uppercase fw-bold" routerLink = "/Register">
                   Don't Have an Account Yet ? Register
-                </button>
+                </a>
               </div>
           
             </form>
@@ -89,4 +95,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
