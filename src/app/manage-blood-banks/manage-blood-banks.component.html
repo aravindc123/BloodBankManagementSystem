@@ -13,12 +13,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Ashreya</td>
-        <td>WYND</td>
-        <td>A+ : 3,B+ : 3</td>
-        <td>9876543210</td>
+      <tr *ngFor = "let item of bloodBankDetails">
+        <th scope="row">{{ item.BloodBankId }}</th>
+        <td>{{ item.BloodBankName }}</td>
+        <td>{{ item.City }}</td>
+        <td>A+ : {{ item.APositive }},B+ : {{ item.BPositive }},O+ : {{ item.OPositive }}, AB+ : {{ item.ABPositive }}, A- : {{ item.ANegative }}, B- : {{ item.BNegative }}, O- : {{ item.ONegative }}, AB- : {{ item.ABNegative }}</td>
+        <td>{{ item.Contact }}</td>
         <td><button class="btn btn-danger">Delete</button></td>
       </tr>
       

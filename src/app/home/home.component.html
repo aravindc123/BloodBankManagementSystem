@@ -29,10 +29,17 @@
   <div class="center">
   <div class="container justify-content-center">
   <div class="notifiationArea row ">
-  <app-notification-cards class="col-md-3 col-sm-12" [value]="'Vaccination Drive'"></app-notification-cards>
-  <app-notification-cards class="col-md-3 col-sm-12" [value]="'Vaccination Drive'"></app-notification-cards>
-  <app-notification-cards class="col-md-3 col-sm-12" [value]="'Vaccination Drive'"></app-notification-cards>
-  <app-notification-cards class="col-md-3 col-sm-12" [value]="'Vaccination Drive'"></app-notification-cards>
+    <div *ngFor = "let item of notificationData" class="col-md-3 col-sm-12">
+  <!-- <app-notification-cards  [value]="'Vaccination Drive'"></app-notification-cards> -->
+  <div class="card shadow mb-3" style="max-width: 18rem;">
+    <div class="card-header text-dark fw-bold">{{ item.Title }}</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">{{ item.Title }}</h5>
+      <p class="card-text">{{ item.Content }}</p>
+    </div>
+  </div>
+</div>
+
  
 </div>
 </div>

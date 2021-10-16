@@ -29,6 +29,7 @@ import { BloodStocksComponent } from './blood-stocks/blood-stocks.component';
 import { AddCampComponent } from './add-camp/add-camp.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DonorProfileComponent } from './donor-profile/donor-profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { DonorProfileComponent } from './donor-profile/donor-profile.component';
     MatFormFieldModule,
     MatOptionModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BloodBank } from '../_models/blood-bank';
+import { AdminService } from '../_services/admin.service';
 
 @Component({
   selector: 'app-manage-blood-banks',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageBloodBanksComponent implements OnInit {
 
-  constructor() { }
+  bloodBankDetails? : BloodBank[];
+
+  constructor(private adminServivce : AdminService) { }
 
   ngOnInit(): void {
+    this.GetAllBloodBanks();
+  }
+
+  GetAllBloodBanks(){
+    this.adminServivce.GetAllBloodBanks().subscribe(data => {
+      this.bloodBankDetails = data;
+    })
+  }
+
+  DeleteBloodBanks(bloodBankId : any){
+    this.adminServivce.DeleteBloodBank(bloodBankId).subscribe(data => {
+      this.GetAllBloodBanks();
+    });
   }
 
 }
