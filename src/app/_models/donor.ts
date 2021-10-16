@@ -9,3 +9,8 @@ export class Donor {
     HealthCondition? : string; 
     IsDonor? : number;
 }
+
+export class DonorLoginCredential{
+    UserName? : string;
+    Password? : string;
+}

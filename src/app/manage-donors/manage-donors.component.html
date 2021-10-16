@@ -21,7 +21,7 @@
         <td>{{ item.Contact }}</td>
         <td>{{ item.BloodGroup }}</td>
         <td>{{ item.AadharNumber }}</td>
-        <td>{{ item.DOB | date:'short'}}</td>
+        <td>{{ GetAge(item.DOB)}}</td>
         <td>{{item.City}}</td>
         <td><button class="btn btn-danger">Delete</button></td>
       </tr>

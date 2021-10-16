@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable , of  } from 'rxjs';
 import { tap , delay } from 'rxjs/operators';
+import { Donor, DonorLoginCredential } from '../_models/donor';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +10,9 @@ import { tap , delay } from 'rxjs/operators';
 export class AuthService {
 
   isUserLoggedIn = false;
+  url = "https://localhost:44309/api/Auth"
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
 
   AdminLogin(username? : string,password? : string) : Observable<any>{
@@ -46,6 +49,10 @@ export class AuthService {
          console.log("Is User Authentication is successful: " + val); 
       })
    );
+  }
+
+  DonorLogin(donorLogin : DonorLoginCredential) : Observable<Donor>{
+    return this.http.post(this.url+"/login",donorLogin);
   }
 
   logout(){

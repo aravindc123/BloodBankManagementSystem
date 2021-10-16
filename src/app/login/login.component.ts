@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder , FormGroup , Validators  } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
+import { DonorLoginCredential } from '../_models/donor';
 
 @Component({
   selector: 'app-login',
@@ -68,9 +69,21 @@ export class LoginComponent implements OnInit {
         );
       }
       else if(this.active == 2){
-        this.authService.UserLogin(data.username,data.password).subscribe(
+        let donor : DonorLoginCredential = {
+          UserName : data.username,
+          Password : data.password
+        }
+        this.authService.DonorLogin(donor).subscribe(
           data => {
-            this.router.navigate(['/']);
+           if(data != null){
+            localStorage.setItem('isUserLoggedIn',"true");
+            localStorage.setItem('User',JSON.stringify(data));
+            localStorage.setItem('role','User');
+            this.router.navigate(['/'])
+           }
+           else{
+             this.router.navigate(['/Login'])
+           }
           },
           err => {
             this.error = err;

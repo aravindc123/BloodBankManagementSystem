@@ -9,13 +9,20 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   active = 1;
+  UserName? : string;
   role! : string; 
   isUserLoggedIn? : boolean; 
   constructor(private authService : AuthService, private router : Router) { 
     this.isUserLoggedIn = this.authService.IsLoggedIn();
     if(this.isUserLoggedIn){
       this.role = localStorage.getItem('role')!;
+      let data = JSON.parse(localStorage.getItem('User')!);
+      this.UserName = data.UserName;
     }
+  }
+
+  get GetUserName(){
+   return this.UserName;
   }
 
   get UserLoggedIn(){

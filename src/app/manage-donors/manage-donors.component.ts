@@ -30,4 +30,16 @@ export class ManageDonorsComponent implements OnInit {
     })
   }
 
+  GetAge(dob : any){
+    var timeDiff = Math.abs(Date.now() - this.GetDate(dob));
+    return Math.floor((timeDiff / (1000 * 3600 * 24))/365);
+  }
+
+  GetDate(date: any): any {
+    const _date = new Date(date);
+    return new Date(
+      Date.UTC(_date.getFullYear(), _date.getMonth(), _date.getDate())
+    );
+  };
+
 }

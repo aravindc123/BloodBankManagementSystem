@@ -44,6 +44,50 @@
 </div>
 </div>
 </div>
+<h1 class="text-dark d-flex justify-content-center m-4">Donation Camps</h1>
+  <div class="center">
+  <div class="container justify-content-center">
+  <div class="notifiationArea row ">
+    <div *ngFor = "let camp of donationCamps" class="col-md-4 col-sm-12">
+  <!-- <app-notification-cards  [value]="'Vaccination Drive'"></app-notification-cards> -->
+  <div class="card shadow mb-4" style="max-width: 28rem;">
+    <div class="card-header text-dark fw-bold">{{ camp.BloodBankName }}</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">{{ camp.EventName }}</h5>
+      <p class="card-text">Conducted on {{ camp.EventDate | date:'short' }}</p>
+      <p class="card-text">Registrations will close on {{ camp.EventClosing | date : 'short' }}</p>
+      <p class="card-text">Location : {{ camp.City }}</p>
+      <p class="card-text">Time : {{ camp.EventTime | date : 'h:mm:ss' }}</p>
+      <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter" >Register</button>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5 class="text-dark">Are you sure you want to register for the camp?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click) = "RegisterForDonationCamp(camp.EventId)" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+ 
+</div>
+</div>
+</div>
           
 
   
