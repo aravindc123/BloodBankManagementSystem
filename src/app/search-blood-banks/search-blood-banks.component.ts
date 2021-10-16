@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BloodBank } from '../_models/blood-bank';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-search-blood-banks',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBloodBanksComponent implements OnInit {
 
-  constructor() { }
+  bloodBankDetails? : BloodBank[];
+  city = "";
+  bloodGroup = "";
+  filteredList? : BloodBank[];
+
+  constructor(private userService : UserService) { }
 
   ngOnInit(): void {
+    this.GetAllBloodBank();
+  }
+
+  GetAllBloodBank(){
+    this.userService.GetBloodBanks().subscribe(data => {
+      this.bloodBankDetails = data;
+      this.filteredList = data;
+      console.log(data);
+    })
+  }
+
+  changeCity(event : any){
+    if(this.city == ""){
+      this.bloodBankDetails = this.filteredList;
+    }
+    else{
+      this.bloodBankDetails = this.filteredList?.filter(a => a.City == this.city);
+    }
   }
 
 }

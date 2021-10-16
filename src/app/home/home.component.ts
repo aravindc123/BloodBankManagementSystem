@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CampRegister, Camps } from '../_models/camps';
 import { Notifications } from '../_models/notifications';
 import { UserService } from '../_services/user.service';
@@ -14,8 +15,8 @@ export class HomeComponent implements OnInit {
   donationCamps? : Camps[];
   UserId? : number;
 
-  constructor(private userService : UserService) { 
-    if(localStorage.getItem('isUserLoggedIn') == "true"){
+  constructor(private userService : UserService,private router : Router) { 
+    if(localStorage.getItem('isUserLoggedIn') == "true" && localStorage.getItem('role') == "user"){
       let data = JSON.parse(localStorage.getItem('User')!);
       this.UserId = data.UserId;
     }
@@ -44,6 +45,7 @@ export class HomeComponent implements OnInit {
       UserId : this.UserId,
       IsDonated : 0
     };
+    if(localStorage.getItem('role') == "User"){
     this.userService.RegisterCamp(camp).subscribe(data => {
       if(data == true){
         alert("Registered Successfully");
@@ -53,5 +55,9 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+  else{
+    this.router.navigate(['/Login']);
+  }
+}
 
 }

@@ -59,9 +59,18 @@ export class LoginComponent implements OnInit {
         );
       }
       else if(this.active == 3){
-        this.authService.BloodBankLogin(data.username,data.password).subscribe(
+        let blood : DonorLoginCredential = {
+          UserName : data.username,
+          Password : data.password
+        };
+        this.authService.BloodBankLogin(blood).subscribe(
           data => {
-            this.router.navigate(['/BloodBank']);
+            if(this.authService.IsLoggedIn()){
+              this.router.navigate(['/BloodBank']);
+            }
+            else{
+              alert("Username or Password is incorrect..!");
+            }
           },
           err => {
             this.error = err;
@@ -75,14 +84,8 @@ export class LoginComponent implements OnInit {
         }
         this.authService.DonorLogin(donor).subscribe(
           data => {
-           if(data != null){
-            localStorage.setItem('isUserLoggedIn',"true");
-            localStorage.setItem('User',JSON.stringify(data));
-            localStorage.setItem('role','User');
-            this.router.navigate(['/'])
-           }
-           else{
-             this.router.navigate(['/Login'])
+           if(this.authService.IsLoggedIn()){
+             this.router.navigate(['/'])
            }
           },
           err => {

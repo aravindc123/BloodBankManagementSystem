@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Notifications } from '../_models/notifications';
 import { CampRegister, Camps } from '../_models/camps';
+import { Donor } from '../_models/donor';
+import { BloodBank } from '../_models/blood-bank';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +25,14 @@ export class UserService {
 
   RegisterCamp(camp : CampRegister) : Observable<any> {
     return this.http.post(this.url+"/RegisterForEvent",camp);
+  }
+
+  GetDonors() : Observable<Donor[]>{
+    return this.http.get<Donor[]>(this.url+"/GetDonors");
+  }
+
+  GetBloodBanks() : Observable<BloodBank[]>{
+    return this.http.get<BloodBank[]>(this.url+"/GetBloodStock");
   }
 
 }

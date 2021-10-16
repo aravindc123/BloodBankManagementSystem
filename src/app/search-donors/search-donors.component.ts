@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Donor } from '../_models/donor';
+import { UserService } from '../_services/user.service';
 
 export interface PeriodicElement {
   name: string;
@@ -28,23 +30,53 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 export class SearchDonorsComponent implements OnInit {
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-
-  states: string[] = [
-    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
-    'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-    'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-    'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico',
-    'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-    'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-    'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-  ];
-
-  constructor() { }
+  bloodGroup? : string = "";
+  city? : string = "";
+  donorData? : Donor[];
+  filteredList? : Donor[];
+  constructor(private userService : UserService) { 
+    
+  }
 
   ngOnInit(): void {
+    this.GetAllDonors();
   }
+
+  changeCity(event : any){
+    console.log(this.city);
+    
+    if(this.city == "" && this.bloodGroup == ""){
+      this.donorData = this.filteredList!;
+    }
+    else if(this.city != "" && this.bloodGroup == ""){
+      this.donorData  = this.filteredList?.filter(a => a.City == this.city )!;
+    }
+    else if(this.bloodGroup != "" && this.city == ""){
+      this.donorData  = this.filteredList?.filter(a => a.BloodGroup == this.bloodGroup)!;
+    }
+    else if(this.city != "" && this.bloodGroup != ""){
+      this.donorData  = this.filteredList?.filter(a => a.City == this.city && a.BloodGroup == this.bloodGroup)!;
+    }
+    
+  }
+
+  GetAllDonors(){
+    this.userService.GetDonors().subscribe(data => {
+      this.donorData = data;
+      this.filteredList = data;
+    })
+  }
+
+  GetAge(dob : any){
+    var timeDiff = Math.abs(Date.now() - this.GetDate(dob));
+    return Math.floor((timeDiff / (1000 * 3600 * 24))/365);
+  }
+
+  GetDate(date: any): any {
+    const _date = new Date(date);
+    return new Date(
+      Date.UTC(_date.getFullYear(), _date.getMonth(), _date.getDate())
+    );
+  };
 
 }

@@ -14,7 +14,7 @@ import { AdminComponent } from './admin/admin.component';
 import { BloodBankComponent } from './blood-bank/blood-bank.component';
 import { SearchDonorsComponent } from './search-donors/search-donors.component';
 import { SearchBloodBanksComponent } from './search-blood-banks/search-blood-banks.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ManageDonorsComponent } from './manage-donors/manage-donors.component';
 import { ManageBloodBanksComponent } from './manage-blood-banks/manage-blood-banks.component';
@@ -30,6 +30,7 @@ import { AddCampComponent } from './add-camp/add-camp.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DonorProfileComponent } from './donor-profile/donor-profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
     BloodStocksComponent,
     AddCampComponent,
     AboutUsComponent,
-    DonorProfileComponent
+    DonorProfileComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatOptionModule,
     MatCardModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

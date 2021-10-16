@@ -15,20 +15,18 @@ export class NavbarComponent implements OnInit {
   constructor(private authService : AuthService, private router : Router) { 
     this.isUserLoggedIn = this.authService.IsLoggedIn();
     if(this.isUserLoggedIn){
-      this.role = localStorage.getItem('role')!;
-      let data = JSON.parse(localStorage.getItem('User')!);
-      this.UserName = data.UserName;
+      if(localStorage.getItem('role') == "User"){
+        let data = JSON.parse(localStorage.getItem('User')!); 
+        this.UserName = data.UserName;
+      }
     }
   }
-
-  get GetUserName(){
-   return this.UserName;
+  get User(){
+    return this.authService.GetUserName()
   }
-
   get UserLoggedIn(){
     return this.authService.IsLoggedIn();
   }
-
   get getRole(){
     return this.authService.GetRole(); 
   }

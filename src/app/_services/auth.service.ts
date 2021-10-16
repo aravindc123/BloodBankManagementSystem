@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable , of  } from 'rxjs';
-import { tap , delay } from 'rxjs/operators';
+import { tap , delay, map, catchError } from 'rxjs/operators';
 import { Donor, DonorLoginCredential } from '../_models/donor';
 
 @Injectable({
@@ -27,38 +27,59 @@ export class AuthService {
    );
   }
 
-  BloodBankLogin(username? : string,password? : string) : Observable<any>{
-    this.isUserLoggedIn = username == "blood" && password == "blood";
-    localStorage.setItem('role','BloodBank');
-    localStorage.setItem('isUserLoggedIn',this.isUserLoggedIn ? "true" : "false");
-    return of(this.isUserLoggedIn).pipe(
-      delay(1000),
-      tap(val => { 
-         console.log("Is User Authentication is successful: " + val); 
-      })
-   );
+ 
+
+  BloodBankLogin(bloodBank : DonorLoginCredential){
+    return this.http.post(this.url+"/LoginBloodBank",bloodBank)
+    .pipe(map(blood => {
+      if(blood != null){
+        localStorage.setItem('isUserLoggedIn',"true");
+        localStorage.setItem('User',JSON.stringify(blood));
+        localStorage.setItem('role','BloodBank');
+      }
+    }));
   }
 
-  UserLogin(username? : string,password? : string) : Observable<any>{
-    this.isUserLoggedIn = username == "user" && password == "user";
-    localStorage.setItem('isUserLoggedIn',this.isUserLoggedIn ? "true" : "false");
-    localStorage.setItem('role','User');
-    return of(this.isUserLoggedIn).pipe(
-      delay(1000),
-      tap(val => { 
-         console.log("Is User Authentication is successful: " + val); 
-      })
-   );
-  }
-
-  DonorLogin(donorLogin : DonorLoginCredential) : Observable<Donor>{
-    return this.http.post(this.url+"/login",donorLogin);
+  DonorLogin(donorLogin : DonorLoginCredential) {
+    return this.http.post(this.url+"/login",donorLogin)
+    .pipe(map(user => {
+      if(user != null){
+        localStorage.setItem('isUserLoggedIn',"true");
+        localStorage.setItem('User',JSON.stringify(user));
+        localStorage.setItem('role','User');
+        console.log(user);
+      }
+    }));
   }
 
   logout(){
     this.isUserLoggedIn = false; 
-    localStorage.removeItem('isUserLoggedIn'); 
-    localStorage.removeItem('role');
+    localStorage.clear();
+  }
+
+  GetUser() : Observable<any>{
+    let data = JSON.parse(localStorage.getItem('User')!);
+    return of(data.UserName).pipe(
+      delay(1000),
+      tap(val => { 
+         console.log("Is User Authentication is successful: " + data); 
+      })
+   );
+  }
+
+  GetUserName(){
+    if(localStorage.getItem('isUserLoggedIn') == "true"){
+      if(localStorage.getItem('role') == "User"){
+        return JSON.parse(localStorage.getItem('User')!).UserName;
+      }
+      else if(localStorage.getItem('role') == "BloodBank"){
+        return JSON.parse(localStorage.getItem('User')!).BloodBankName;
+      }
+      else{
+        return "Admin";
+      }
+    }
+    
   }
 
   IsLoggedIn(){

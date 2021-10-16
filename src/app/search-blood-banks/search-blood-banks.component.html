@@ -5,27 +5,16 @@
   </div>
   
   <div class="row m-2">
-    <div class="col">
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select the City</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        
-    </div>
-    <div class="col">
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select the Blood Group</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        
-    </div>
-    <div class="col">
-        <button class="btn btn-danger">Search</button>
-    </div>
+    <div class="col-md-4">
+      <select class="form-select" [(ngModel)] = "city" aria-label="Default select example" (change) = "changeCity($event)">
+          <option value="" selected>Select the City</option>
+          <option value="Trivandrum">Trivandrum</option>
+          <option value="Kollam">Kollam</option>
+          <option value="Pathanamthitta">Pathanamthitta</option>
+        </select>
+      
+  </div>
+  
   </div>
   <div class="spacer"></div>
   <table class="table" >
@@ -34,17 +23,31 @@
         <th scope="col">BloodBank ID</th>
         <th scope="col">BloodBank Name</th>
         <th scope="col">City</th>
-        <th scope="col">Available Blood Groups</th>
         <th scope="col">Contact</th>
+        <th scope="col">A+</th>
+        <th scope="col">B+</th>
+        <th scope="col">O+</th>
+        <th scope="col">AB+</th>
+        <th scope="col">A-</th>
+        <th scope="col">B-</th>
+        <th scope="col">O-</th>
+        <th scope="col">AB-</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Ashreya</td>
-        <td>WYND</td>
-        <td>A+ : 3,B+ : 3</td>
-        <td>9876543210</td>
+      <tr *ngFor = "let item of bloodBankDetails">
+        <th scope="row">{{ item.BloodBankId }}</th>
+        <td>{{ item.BloodBankName }}</td>
+        <td>{{ item.City }}</td>
+        <td>{{ item.Contact }}</td>
+        <td>{{ item.APositive }}</td>
+        <td>{{ item.BPositive }}</td>
+        <td>{{ item.OPositive }}</td>
+        <td>{{ item.ABPositive }}</td>
+        <td>{{ item.ANegative }}</td>
+        <td>{{ item.BNegative }}</td>
+        <td>{{ item.ONegative }}</td>
+        <td>{{ item.ABNegative }}</td>
       </tr>
       
     </tbody>
