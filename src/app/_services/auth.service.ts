@@ -14,21 +14,6 @@ export class AuthService {
 
   constructor(private http : HttpClient) { }
 
-
-  AdminLogin(username? : string,password? : string) : Observable<any>{
-    this.isUserLoggedIn = username == "admin" && password == "admin123";
-    localStorage.setItem('isUserLoggedIn',this.isUserLoggedIn ? "true" : "false");
-    localStorage.setItem('role','Admin');
-    return of(this.isUserLoggedIn).pipe(
-      delay(1000),
-      tap(val => { 
-         console.log("Is User Authentication is successful: " + val); 
-      })
-   );
-  }
-
- 
-
   BloodBankLogin(bloodBank : DonorLoginCredential){
     return this.http.post(this.url+"/LoginBloodBank",bloodBank)
     .pipe(map(blood => {
@@ -39,6 +24,11 @@ export class AuthService {
       }
     }));
   }
+
+  AdminLogin(admin : DonorLoginCredential):Observable<any>{
+    return this.http.post(this.url +"/LoginAdmin",admin);
+   
+  };
 
   DonorLogin(donorLogin : DonorLoginCredential) {
     return this.http.post(this.url+"/login",donorLogin)

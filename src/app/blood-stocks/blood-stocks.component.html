@@ -2,14 +2,14 @@
     Blood Stocks
 </h1>
 <div class="spacer"></div>
-<form action="" class="form-group">
+<form action="" class="form-group" (ngSubmit) = "UpdateBloodStock()">
     
 <div class="row">
     <div class="col-md-4">
         <h4 class="text-danger">A+ve</h4>
     </div>
     <div class="col-md-4">
-        <input type="number" name="" id="" class="form-control">
+        <input [(ngModel)] = "APositive" type="number" name="APos" id="" class="form-control">
     </div>
 </div>
 <div class="spacer"></div>
@@ -18,7 +18,7 @@
         <h4 class="text-danger">B+ve</h4>
     </div>
     <div class="col-md-4">
-        <input type="number" name="" id="" class="form-control">
+        <input [(ngModel)] = "BPositive" type="number" name="BPos" id="" class="form-control">
     </div>
 </div>
 <div class="spacer"></div>
@@ -27,34 +27,7 @@
         <h4 class="text-danger">O+ve</h4>
     </div>
     <div class="col-md-4">
-        <input type="number" name="" id="" class="form-control">
-    </div>
-</div>
-<div class="spacer"></div>
-<div class="row">
-    <div class="col-md-4">
-        <h4 class="text-danger">A-ve</h4>
-    </div>
-    <div class="col-md-4">
-        <input type="number" name="" id="" class="form-control">
-    </div>
-</div>
-<div class="spacer"></div>
-<div class="row">
-    <div class="col-md-4">
-        <h4 class="text-danger">B-ve</h4>
-    </div>
-    <div class="col-md-4">
-        <input type="number" name="" id="" class="form-control">
-    </div>
-</div>
-<div class="spacer"></div>
-<div class="row">
-    <div class="col-md-4">
-        <h4 class="text-danger">O-ve</h4>
-    </div>
-    <div class="col-md-4">
-        <input type="number" name="" id="" class="form-control">
+        <input [(ngModel)] = "OPositive" type="number" name="OPos" id="" class="form-control">
     </div>
 </div>
 <div class="spacer"></div>
@@ -63,7 +36,34 @@
         <h4 class="text-danger">AB+ve</h4>
     </div>
     <div class="col-md-4">
-        <input type="number" name="" id="" class="form-control">
+        <input  [(ngModel)] = "ABPositive" type="number" name="ABPos" id="" class="form-control">
+    </div>
+</div>
+<div class="spacer"></div>
+<div class="row">
+    <div class="col-md-4">
+        <h4 class="text-danger">A-ve</h4>
+    </div>
+    <div class="col-md-4">
+        <input [(ngModel)] = "ANegative" type="number" name="ANeg" id="" class="form-control">
+    </div>
+</div>
+<div class="spacer"></div>
+<div class="row">
+    <div class="col-md-4">
+        <h4 class="text-danger">B-ve</h4>
+    </div>
+    <div class="col-md-4">
+        <input  [(ngModel)] = "BNegative" type="number" name="BNeg" id="" class="form-control">
+    </div>
+</div>
+<div class="spacer"></div>
+<div class="row">
+    <div class="col-md-4">
+        <h4 class="text-danger">O-ve</h4>
+    </div>
+    <div class="col-md-4">
+        <input [(ngModel)] = "ONegative" type="number" name="ONeg" id="" class="form-control">
     </div>
 </div>
 <div class="spacer"></div>
@@ -72,22 +72,13 @@
         <h4 class="text-danger">AB-ve</h4>
     </div>
     <div class="col-md-4">
-        <input type="number" name="" id="" class="form-control">
+        <input [(ngModel)] = "ABNegative" type="number" name="ABNeg" id="" class="form-control">
     </div>
 </div>
 <div class="spacer"></div>
 <div class="row">
     <div class="col-md-4">
-        <h4 class="text-danger">A+ve</h4>
-    </div>
-    <div class="col-md-4">
-        <input type="number" name="" id="" class="form-control">
-    </div>
-</div>
-<div class="spacer"></div>
-<div class="row">
-    <div class="col-md-4">
-        <input type="submit" value="Update" class="btn btn-success ">
+        <input  type="submit" value="Update" class="btn btn-success ">
     </div>
 </div>
 </form>

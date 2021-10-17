@@ -49,9 +49,20 @@ export class LoginComponent implements OnInit {
     }
     else{
       if(this.active == 1){
-        this.authService.AdminLogin(data.username,data.password).subscribe(
+        let adminData : DonorLoginCredential = {
+          UserName : data.username, 
+          Password : data.password
+        }
+        this.authService.AdminLogin(adminData).subscribe(
           data => {
-            this.router.navigate(['/admin']);
+            if(data == true){
+              localStorage.setItem('isUserLoggedIn',"true");
+              localStorage.setItem('role','Admin');
+              this.router.navigate(['/admin']);
+            }
+            else{
+              alert("Username or Password is wrong");
+            }
           },
           err => {
             this.error = err;
