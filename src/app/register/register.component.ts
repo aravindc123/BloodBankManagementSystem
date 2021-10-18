@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup , FormBuilder, Validators } from '@angular/forms';
+import { FormGroup , FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BloodBankReg } from '../_models/blood-bank';
 import { DonorReg } from '../_models/donor';
@@ -19,26 +19,25 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authservice : AuthService,private router : Router,private formBuilder : FormBuilder) { 
     this.bloodBankRegisterForm = this.formBuilder.group({
-      BloodBankName : ['',Validators.required],
-      Password : ['',Validators.required],
-      ConfirmPassword : ['',Validators.required],
-      ContactNumber : ['',Validators.required],
+      BloodBankName : ['',[Validators.required,Validators.minLength(8)]],
+      Password : ['',[Validators.required,Validators.minLength(8)]],
+      ConfirmPassword : ['',[Validators.required,Validators.minLength(8)]],
+      ContactNumber : ['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       City : ['',Validators.required]
     });
 
     this.donorRegisterForm = this.formBuilder.group({
-        UserName : ['',Validators.required],
-        DPassword : ['',Validators.required],
-        DCPassword : ['',Validators.required],
-        DContact : ['',Validators.required],
-        AadharNumber : ['',Validators.required],
+        UserName : ['',[Validators.required,Validators.minLength(8)]],
+        DPassword : ['',[Validators.required,Validators.minLength(8)]],
+        DCPassword : ['',[Validators.required,Validators.minLength(8)]],
+        DContact : ['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
+        AadharNumber : ['',[Validators.required,Validators.minLength(12),Validators.maxLength(12)]],
         BloodGroup : ['',Validators.required],
         DateofBirth : ['',Validators.required],
         DCity : ['',Validators.required],
         DHealthCondition : ['',Validators.required]
     })
   }
-
   ngOnInit(): void {
   }
 
@@ -59,20 +58,10 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
     if(this.active == 1){
       if(this.donorRegisterForm.invalid){
-        let donorReg : DonorReg = {
-          UserName : event.UserName, 
-          Password : event.DPassword,
-          Contact : event.DContact,
-          AadharNumber : event.AadharNumber,
-          BloodGroup : event.BloodGroup,
-          DOB : event.DateofBirth,
-          City : event.DCity,
-          HealthCondition : event.DHealthCondition,
-          IsDonor : event.IsDonor
-        }
-        console.log(donorReg)
-        alert("Invalid")
         return;
+      }
+      else if( event.DPassword != event.DCPassword){
+        alert("Passwords do not match..!")
       }
       else{
         console.log("Hi")
@@ -82,7 +71,7 @@ export class RegisterComponent implements OnInit {
           Contact : event.DContact,
           AadharNumber : event.AadharNumber,
           BloodGroup : event.BloodGroup,
-          DOB : event.DOB,
+          DOB : event.DateofBirth,
           City : event.DCity,
           HealthCondition : event.DHealthCondition,
           IsDonor : event.IsDonor
@@ -101,12 +90,15 @@ export class RegisterComponent implements OnInit {
       if(this.bloodBankRegisterForm.invalid){
           return;
       }
+      else if( event.Password != event.ConfirmPassword){
+        alert("Passwords do not match..!")
+      }
       else{
         let bloodBank : BloodBankReg = {
           BloodBankName : event.BloodBankName,
           Password : event.Password,
           City : event.City,
-          Contact : event.Contact
+          Contact : event.ContactNumber
         }
         this.authservice.RegisterBloodBank(bloodBank).subscribe(data => {
             if(data){

@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="bg">
     <h1 class="text-dark d-flex  justify-content-center m-4">Registration</h1>
     <div class="d-flex align-items-center justify-content-center" style="height: 600px">
@@ -128,4 +128,203 @@
      </div>
     </div>
     </div>
-  
+   -->
+
+   
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="/assets/picture.jpg" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <div class="spacer"></div>
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <h1 class="lead fw-normal mb-0 me-3 fw-bold ">Sign In</h1>
+          
+          </div>
+          <div class="row d-flex justify-content-center m-3">
+            <div class="col-md-4 col-sm-2">
+                <a  [ngClass] = "active == 1 ? 'text-dark fw-bold linkText linkTextActive' : 'text-dark fw-bold linkText'" (click) = "changeAuthDonor()">DONOR</a>
+              </div>
+              <div class="col-md-4 col-sm-2">
+                <a  [ngClass] = "active == 2 ? 'text-dark fw-bold linkText linkTextActive' : 'text-dark fw-bold linkText'" (click) = "changeAuthBloodBank()">BLOODBANK</a>
+              </div>
+           </div>
+        
+        <form  *ngIf = "active == 1; else bloodBankRegister" [formGroup] = "donorRegisterForm" (ngSubmit) = "onSubmit(donorRegisterForm.value)" >
+          
+          <div class="spacer"></div>
+          
+          <div class="spacer"></div>
+
+          <div class="form-outline ">
+            <input type="text" id="form3Example3" class="form-control " formControlName = "UserName"
+              placeholder="UserName" [ngClass]="{ 'is-invalid': submitted && DonorForm.UserName.errors }"/>
+            <label class="form-label" for="form3Example3">UserName</label>
+            <div *ngIf="submitted && DonorForm.UserName.errors" class="invalid-feedback">
+              <div *ngIf="DonorForm.UserName.errors.required" class="text-danger">Username  is required</div>
+          </div>
+          </div>
+
+          <div class="form-outline ">
+            <input type="password" id="form3Example4" class="form-control" formControlName = "DPassword"
+              placeholder="Password" [ngClass]="{ 'is-invalid': submitted && DonorForm.DPassword.errors }" />
+            <label class="form-label" for="form3Example4">Password</label>
+            <div *ngIf="submitted && DonorForm.DPassword.errors" class="invalid-feedback">
+              <div *ngIf="DonorForm.DPassword.errors.required" class="text-danger">Password  is required</div>
+          </div>
+          </div>
+          <div class="form-outline ">
+            <input type="password" id="form3Example4" class="form-control " formControlName = "DCPassword"
+              placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted && DonorForm.DCPassword.errors }" />
+            <label class="form-label" for="form3Example4">Confirm Password</label>
+            <div *ngIf="submitted && DonorForm.DCPassword.errors" class="invalid-feedback">
+              
+              <div *ngIf="DonorForm.DCPassword.errors.required" class="text-danger">Confirm Password  is required</div>
+          </div>
+          <div class="form-outline ">
+            <input type="number" id="form3Example3" class="form-control " formControlName = "DContact"
+              placeholder="Contact" [ngClass]="{ 'is-invalid': submitted && DonorForm.DContact.errors }"/>
+            <label class="form-label" for="form3Example3">Contact</label>
+            <div *ngIf="submitted && DonorForm.DContact.errors" class="invalid-feedback">
+              <div *ngIf="DonorForm.DContact.errors.required" class="text-danger">Contact  is required</div>
+          </div>
+          </div>
+          <div class="form-outline ">
+            <select class="form-select" formControlName = "BloodGroup" [ngClass]="{ 'is-invalid': submitted && DonorForm.BloodGroup.errors }">
+              <option value="" selected>Select Blood Group</option>
+              <option value="A+" >A+</option>
+              <option value="B+" >B+</option>
+              <option value="O+" >O+</option>
+              <option value="AB+" >AB+</option>
+              <option value="A-" >A-</option>
+              <option value="B-" >B-</option>
+              <option value="O-" >O-</option>
+              <option value="AB-" >AB-</option>
+            </select>
+            <label class="form-label" for="form3Example3">Blood Group</label>
+            <div *ngIf="submitted && DonorForm.BloodGroup.errors" class="invalid-feedback">
+              <div *ngIf="DonorForm.BloodGroup.errors.required" class="text-danger">BloodGroup  is required</div>
+          </div>
+          </div>
+          <div class="form-outline ">
+            <input type="number" id="form3Example3" class="form-control " formControlName = "AadharNumber"
+              placeholder="Aadhar Number" [ngClass]="{ 'is-invalid': submitted && DonorForm.AadharNumber.errors }"/>
+            <label class="form-label" for="form3Example3">Aadhar Number</label>
+            <div *ngIf="submitted && DonorForm.AadharNumber.errors" class="invalid-feedback">
+              <div *ngIf="DonorForm.AadharNumber.errors.required" class="text-danger">AadharNumber  is required</div>
+          </div>
+          </div>
+          <div class="form-outline ">
+            <input type="date" id="form3Example3" class="form-control " formControlName = "DateofBirth"
+              placeholder="Aadhar Number" [ngClass]="{ 'is-invalid': submitted && DonorForm.DateofBirth.errors }"/>
+            <label class="form-label" for="form3Example3">Date of Birth</label>
+            <div *ngIf="submitted && DonorForm.DateofBirth.errors" class="invalid-feedback">
+              <div *ngIf="DonorForm.DateofBirth.errors.required" class="text-danger">Date of Birth is required</div>
+          </div>
+          </div>
+          <div class="form-outline ">
+            <select class="form-select" formControlName = "DCity" [ngClass]="{ 'is-invalid': submitted && DonorForm.DCity.errors }">
+              <option value="" selected>Select City</option>
+              <option value="Trivandrum " >Trivandrum </option>
+              <option value="Kollam" >Kollam</option>
+              <option value="Pathanamthitta" >Pathanamthitta</option>
+              <option value="Wayanad" >Wayanad</option>
+              <option value="Kottayam" >Kottayam</option>
+              <option value="Ernakulam" >Ernakulam</option>
+              <option value="Alappuzha" >Alappuzha</option>
+              <option value="Idukki" >Idukki</option>
+            </select>
+            <label class="form-label" for="form3Example3">City</label>
+            <div *ngIf="submitted && DonorForm.DCity.errors" class="invalid-feedback">
+              <div *ngIf="DonorForm.DCity.errors.required" class="text-danger">City  is required</div>
+          </div>
+          </div>
+          <div class="form-outline ">
+            <input type="text" id="form3Example3" class="form-control " formControlName = "DHealthCondition"
+              placeholder="Health Condition" [ngClass]="{ 'is-invalid': submitted && DonorForm.DHealthCondition.errors }"/>
+            <label class="form-label" for="form3Example3">Health Condition</label>
+            <div *ngIf="submitted && DonorForm.DHealthCondition.errors" class="invalid-feedback">
+              <div *ngIf="DonorForm.DHealthCondition.errors.required" class="text-danger">Health Condition  is required</div>
+          </div>
+          </div>
+          
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <input type="submit" value="Register" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">
+            <p class="small fw-bold mt-2 pt-1 mb-0">
+              Already have an account? <a routerLink = "/Login"
+                class="link-danger">Login</a></p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <ng-template #bloodBankRegister>
+    <div class="spacer"></div>
+    <form action="" class="form-group" [formGroup] = "bloodBankRegisterForm" (ngSubmit) = "onSubmit(bloodBankRegisterForm.value)">
+    <div class="form-outline ">
+      <input type="text" id="form3Example3" class="form-control " formControlName = "BloodBankName"
+        placeholder="BloodBank Name" [ngClass]="{ 'is-invalid': submitted && form.BloodBankName.errors }"/>
+      <label class="form-label" for="form3Example3">BloodBank Name</label>
+      <div *ngIf="submitted && form.BloodBankName.errors" class="invalid-feedback">
+        <div *ngIf="form.BloodBankName.errors.required" class="text-danger">Bloodbank Name is required</div>
+    </div>
+    </div>
+
+    <div class="form-outline ">
+      <input type="password" id="form3Example4" class="form-control" formControlName = "Password"
+        placeholder="Password" [ngClass]="{ 'is-invalid': submitted && form.Password.errors }" />
+      <label class="form-label" for="form3Example4">Password</label>
+      <div *ngIf="submitted && form.Password.errors" class="invalid-feedback">
+        <div *ngIf="form.Password.errors.required" class="text-danger">Password  is required</div>
+    </div>
+    </div>
+    <div class="form-outline ">
+      <input type="password" id="form3Example4" class="form-control " formControlName = "ConfirmPassword"
+        placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted && form.ConfirmPassword.errors }" />
+      <label class="form-label" for="form3Example4">Confirm Password</label>
+      <div *ngIf="submitted && form.ConfirmPassword.errors" class="invalid-feedback">
+        <div *ngIf="form.ConfirmPassword.errors.required" class="text-danger">Confirm Password  is required</div>
+    </div>
+    <div class="form-outline ">
+      <input type="number" id="form3Example3" class="form-control " formControlName = "ContactNumber"
+        placeholder="Contact" [ngClass]="{ 'is-invalid': submitted && form.ContactNumber.errors }"/>
+      <label class="form-label" for="form3Example3">Contact</label>
+      <div *ngIf="submitted && form.ContactNumber.errors" class="invalid-feedback">
+        <div *ngIf="form.ContactNumber.errors.required" class="text-danger">Contact Number  is required</div>
+    </div>
+    </div>
+    <div class="form-outline ">
+      <select class="form-select" formControlName = "City" [ngClass]="{ 'is-invalid': submitted && form.City.errors }">
+        <option value="" selected>Select City</option>
+        <option value="Trivandrum " >Trivandrum </option>
+        <option value="Kollam" >Kollam</option>
+        <option value="Pathanamthitta" >Pathanamthitta</option>
+        <option value="Wayanad" >Wayanad</option>
+        <option value="Kottayam" >Kottayam</option>
+        <option value="Ernakulam" >Ernakulam</option>
+        <option value="Alappuzha" >Alappuzha</option>
+        <option value="Idukki" >Idukki</option>
+      </select>
+      <label class="form-label" for="form3Example3">City</label>
+      <div *ngIf="submitted && form.City.errors" class="invalid-feedback">
+        <div *ngIf="form.City.errors.required" class="text-danger">City is required</div>
+    </div>
+    </div>
+    
+    </div>
+    <div class="text-center text-lg-start mt-4 pt-2">
+      <input type="submit" value="Register" class="btn btn-primary btn-lg"
+        style="padding-left: 2.5rem; padding-right: 2.5rem;">
+      <p class="small fw-bold mt-2 pt-1 mb-0">
+        Already have an account? <a routerLink = "/Login"
+          class="link-danger">Login</a></p>
+    </div>
+    </form>
+  </ng-template>
+</section>

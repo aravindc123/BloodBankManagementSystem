@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
           UserName : data.username, 
           Password : data.password
         }
+        
         this.authService.AdminLogin(adminData).subscribe(
           data => {
             if(data == true){
@@ -76,7 +77,7 @@ export class LoginComponent implements OnInit {
         };
         this.authService.BloodBankLogin(blood).subscribe(
           data => {
-            if(this.authService.IsLoggedIn()){
+            if(this.authService.IsLoggedIn() == true){
               this.router.navigate(['/BloodBank']);
             }
             else{
@@ -97,6 +98,9 @@ export class LoginComponent implements OnInit {
           data => {
            if(this.authService.IsLoggedIn()){
              this.router.navigate(['/'])
+           }
+           else{
+            alert("Username or Password is incorrect..!");
            }
           },
           err => {

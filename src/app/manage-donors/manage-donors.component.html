@@ -1,6 +1,7 @@
-<h1 class="text-dark fw-bold" style="margin-bottom: 20px;">
+<h1 class=" fw-bold bg-info text-light shadow" style="padding: 30px; border-radius: 20px;">
   Manage Donors
 </h1>
+<div class="spacer"></div>
 <table class="table">
     <thead>
       <tr>
@@ -23,7 +24,7 @@
         <td>{{ item.AadharNumber }}</td>
         <td>{{ GetAge(item.DOB)}}</td>
         <td>{{item.City}}</td>
-        <td><button class="btn btn-danger">Delete</button></td>
+        <td><button class="btn btn-danger" (click) = "DeleteDonors(item.UserId)" >Delete</button></td>
       </tr>
       
   </table>

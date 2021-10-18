@@ -15,7 +15,7 @@
   .bg{
       width: 100vw;
       height: 100vh; 
-      background-image: url("/assets/blood-bank.jpg") ;
+      background-image: url("/assets/6262.jpg") ;
       background-repeat: no-repeat;
       background-size: cover;
   }
@@ -51,9 +51,9 @@
   .bg{
     width: 100vw;
     height: 100vh; 
-    background-image: url("/assets/blood-bank.jpg") ;
+    background-image: url("/assets/6262.jpg") ;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
   body {
     margin: 0;
@@ -72,12 +72,12 @@
 }
 
 .linkText:hover{
-    background-color: rgba(255, 255, 255,1);
+    background-color: rgba(0, 0, 0,0.2);
     cursor: pointer;
 }
 
 .linkTextActive{
-  background-color: rgba(255, 255, 255,1);
+  background-color: rgba(0, 0, 0,0.2);
 } 
 
 .textBox{

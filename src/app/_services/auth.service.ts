@@ -40,6 +40,9 @@ export class AuthService {
         localStorage.setItem('role','User');
         console.log(user);
       }
+      else{
+        localStorage.setItem('isUserLoggedIn',"false");
+      }
     }));
   }
 

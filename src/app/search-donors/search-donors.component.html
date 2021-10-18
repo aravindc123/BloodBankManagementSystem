@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-dark">Search For Donors </h1>
+  <h1 class="text-dark"><i class="fas fa-users"></i>&nbsp;Search For Donors </h1>
 <h3 class="text-dark">In your Area</h3>
 
 </div>
@@ -7,10 +7,15 @@
 <div class="row m-2">
   <div class="col-md-4">
       <select class="form-select" [(ngModel)] = "city" aria-label="Default select example" (change) = "changeCity($event)">
-          <option value="" selected>Select the City</option>
-          <option value="Trivandrum">Trivandrum</option>
-          <option value="Kollam">Kollam</option>
-          <option value="Pathanamthitta">Pathanamthitta</option>
+        <option value="" selected>Select City</option>
+        <option value="Trivandrum " >Trivandrum </option>
+        <option value="Kollam" >Kollam</option>
+        <option value="Pathanamthitta" >Pathanamthitta</option>
+        <option value="Wayanad" >Wayanad</option>
+        <option value="Kottayam" >Kottayam</option>
+        <option value="Ernakulam" >Ernakulam</option>
+        <option value="Alappuzha" >Alappuzha</option>
+        <option value="Idukki" >Idukki</option>
         </select>
       
   </div>

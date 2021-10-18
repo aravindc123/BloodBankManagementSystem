@@ -1,14 +1,22 @@
-<h1  class="text-dark fw-bold" style="margin-bottom: 20px; display: block;">
+<h1  class=" fw-bold bg-info text-light shadow" style="padding: 30px; border-radius: 20px;">
   Manage Blood Banks
 </h1>
+<div class="spacer"></div>
 <table class="table" >
     <thead>
       <tr>
         <th scope="col">BloodBank ID</th>
         <th scope="col">BloodBank Name</th>
         <th scope="col">City</th>
-        <th scope="col">Available Blood Groups</th>
         <th scope="col">Contact</th>
+        <th scope="col">A+</th>
+        <th scope="col">B+</th>
+        <th scope="col">O+</th>
+        <th scope="col">AB+</th>
+        <th scope="col">A-</th>
+        <th scope="col">B-</th>
+        <th scope="col">O-</th>
+        <th scope="col">AB-</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -17,9 +25,16 @@
         <th scope="row">{{ item.BloodBankId }}</th>
         <td>{{ item.BloodBankName }}</td>
         <td>{{ item.City }}</td>
-        <td>A+ : {{ item.APositive }},B+ : {{ item.BPositive }},O+ : {{ item.OPositive }}, AB+ : {{ item.ABPositive }}, A- : {{ item.ANegative }}, B- : {{ item.BNegative }}, O- : {{ item.ONegative }}, AB- : {{ item.ABNegative }}</td>
         <td>{{ item.Contact }}</td>
-        <td><button class="btn btn-danger">Delete</button></td>
+        <td>{{ item.APositive }}</td>
+        <td>{{ item.BPositive }}</td>
+        <td>{{ item.OPositive }}</td>
+        <td>{{ item.ABPositive }}</td>
+        <td>{{ item.ANegative }}</td>
+        <td>{{ item.BNegative }}</td>
+        <td>{{ item.ONegative }}</td>
+        <td>{{ item.ABNegative }}</td>
+        <td><button class="btn btn-danger" (click) = "DeleteBloodBanks(item.BloodBankId)" >Delete</button></td>
       </tr>
       
     </tbody>

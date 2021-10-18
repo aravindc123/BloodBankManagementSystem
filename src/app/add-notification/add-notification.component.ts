@@ -13,6 +13,7 @@ export class AddNotificationComponent implements OnInit {
   notificationForm! : FormGroup; 
   submitted = false;
   notifications? : Notifications[];
+  notificationId? : number;
   constructor(private adminServivce : AdminService,private formBuilder : FormBuilder) {
     this.notificationForm = this.formBuilder.group({
       Title : ['',Validators.required],
@@ -47,16 +48,22 @@ export class AddNotificationComponent implements OnInit {
       this.adminServivce.AddNotification(notification).subscribe(data => {
         this.GetAllNotifications();
         this.notificationForm.reset();
+        this.submitted = false;
       });
     }
+  }
+
+  changeEventId(notificationId : any){
+    this.notificationId = notificationId;
   }
 
   openModal(){
     $('#myModal').modal('show');
     }
 
-  DeleteNotifications(notificationId : any){
-    this.adminServivce.DeleteNotification(notificationId).subscribe(data => {
+  DeleteNotifications(){
+    console.log(this.notificationId);
+    this.adminServivce.DeleteNotification(this.notificationId!).subscribe(data => {
       this.GetAllNotifications();
     })
   }

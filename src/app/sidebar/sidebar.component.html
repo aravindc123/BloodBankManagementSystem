@@ -1,29 +1,30 @@
 <div class="wrapper ">
     <!-- Sidebar  -->
-    <nav id="sidebar" style="display: block;"  [ngClass] = "toggle ? '' : 'active'">
-        <div class="sidebar-header">
-            <h3>{{ GetUserName }}</h3>
+    <nav id="sidebar" class="bg-dark" style="display: block;"  [ngClass] = "toggle ? '' : 'active'">
+        <div class="sidebar-header bg-dark">
+            <h3><i class="fas fa-user"></i>&nbsp;&nbsp;{{ GetUserName }}</h3>
         </div>
+        <hr>
 
         <ul class="list-unstyled components" *ngIf = "value == 'Admin'; else bloodBank">
             <li>
-                <a routerLink = "/admin" routerLinkActive = "activeClass"  [routerLinkActiveOptions]="{exact: true}">Manage Donors</a>
+               <a routerLink = "/admin" routerLinkActive = "activeClass"  [routerLinkActiveOptions]="{exact: true}">  <i class="fas fa-users">&nbsp; &nbsp;</i>Manage Donors</a>
             </li>
             <li>
-                <a routerLink="/admin/ManageBloodBanks" routerLinkActive = "activeClass">Manage Blood Banks</a>
+                <a routerLink="/admin/ManageBloodBanks" routerLinkActive = "activeClass"><i class="fas fa-hospital-alt"></i>&nbsp; &nbsp;Manage Blood Banks</a>
             </li>
             <li>
-                <a routerLink="/admin/AddNotification" routerLinkActive = "activeClass">Add Notifications</a>
+                <a routerLink="/admin/AddNotification" routerLinkActive = "activeClass"><i class="fas fa-bell"></i>&nbsp; &nbsp;Add Notifications</a>
             </li>
         </ul>
 
         <ng-template #bloodBank>
             <ul class="list-unstyled components">
                 <li>
-                    <a routerLink = "/BloodBank" routerLinkActive = "activeClass"  [routerLinkActiveOptions]="{exact: true}">Blood Stocks</a>
+                    <a routerLink = "/BloodBank" routerLinkActive = "activeClass"  [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-business-time"></i>&nbsp; &nbsp;Blood Stocks</a>
                 </li>
                 <li>
-                    <a routerLink="/BloodBank/AddCamp" routerLinkActive = "activeClass">Add Camp</a>
+                    <a routerLink="/BloodBank/AddCamp" routerLinkActive = "activeClass"><i class="fas fa-campground"></i>&nbsp;&nbsp;Add Camp</a>
                 </li>
             </ul>
         </ng-template>
@@ -39,11 +40,9 @@
 
                 <button type="button" (click) = "toggleBtn()" id="sidebarCollapse" class="btn btn-info">
                     <i class="fas fa-align-left"></i>
-                    <span>Toggle Sidebar</span>
+                    
                 </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
+                
 
                
             </div>

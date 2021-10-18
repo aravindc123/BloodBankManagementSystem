@@ -1,4 +1,4 @@
-<div class="bg">
+<!-- <div class="bg">
 <h1 class="text-dark d-flex  justify-content-center m-4">Login</h1>
 <div class="spacer"></div>
 <div class="d-flex align-items-center justify-content-center" style="height: 350px">
@@ -45,54 +45,66 @@
   </form>
  </div>
 </div>
-</div>
-<!-- <div class="bg">
-  <div class="container ">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card border-0 shadow rounded-3 my-5 loginBox">
-          <div class="card-body p-4 p-sm-5">
-            <h1 class="card-title text-center mb-5 fw-light fs-5 text-dark fw-bold">Sign In</h1>
-            <div class="row">
-              <div class="col-md-4 col-sm-2">
-                <a  [ngClass] = "active == 1 ? 'text-dark fw-bold linkText linkTextActive' : 'text-dark fw-bold linkText'" (click) = "changeAuthAdmin()">ADMIN</a>
-              </div>
-              <div class="col-md-4 col-sm-2">
-               <a  [ngClass] = "active == 2 ? 'text-dark fw-bold linkText linkTextActive' : 'text-dark fw-bold linkText'" (click) = "changeAuthDonor()">DONOR</a>
-             </div>
-             <div class="col-md-4  col-sm-2">
-               <a  [ngClass] = "active == 3 ? 'text-dark fw-bold linkText linkTextActive' : 'text-dark fw-bold linkText'" (click) = "changeAuthBloodBank()">B BANK</a>
-             </div>
-            </div>
-            <div class="spacer"></div>
-            <form [formGroup] = "loginForm" (ngSubmit) = "onSubmit()" class="form-group">
-              <div class="form-floating mb-3">
-                <input type="text" placeholder="Username" class="form-control textBox" formControlName = "username" [ngClass]="{ 'is-invalid': submitted && form.username.errors }" />
-         <div *ngIf="submitted && form.username.errors" class="invalid-feedback">
-          <div *ngIf="form.username.errors.required" class="text-warning bg-light">Username  is required</div>
-      </div>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="password"  placeholder="Password" class="form-control textBox" formControlName = "password" [ngClass]="{ 'is-invalid': submitted && form.password.errors }"/>
-      <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
-        <div *ngIf="form.password.errors.required" class="text-warning">Password  is required</div>
-    </div>
-              </div>
+</div> -->
 
-              <div class="d-grid">
-                <button class="btn btn-primary btn-login text-uppercase textButton fw-bold" type="submit">Login</button>
-              </div>
-              <hr class="my-4">
-              <div class="d-grid mb-2">
-                <a class="btn btn-google btn-login text-uppercase fw-bold" routerLink = "/Register">
-                  Don't Have an Account Yet ? Register
-                </a>
-              </div>
+
+
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="/assets/6262.jpg" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        
+        <form  [formGroup] = "loginForm" (ngSubmit) = "onSubmit(loginForm.value)" >
+          <div class="spacer"></div>
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <h1 class="lead fw-normal mb-0 me-3 fw-bold ">Sign In</h1>
           
-            </form>
           </div>
-        </div>
+          <div class="spacer"></div>
+          <div class="row d-flex justify-content-center m-3">
+            <div class="col-md-4 col-sm-2">
+              <a  [ngClass] = "active == 1 ? 'text-dark fw-bold linkText linkTextActive' : 'text-dark fw-bold linkText'" (click) = "changeAuthAdmin()">ADMIN</a>
+            </div>
+            <div class="col-md-4 col-sm-2">
+             <a  [ngClass] = "active == 2 ? 'text-dark fw-bold linkText linkTextActive' : 'text-dark fw-bold linkText'" (click) = "changeAuthDonor()">DONOR</a>
+           </div>
+           <div class="col-md-4 col-sm-2">
+             <a  [ngClass] = "active == 3 ? 'text-dark fw-bold linkText linkTextActive' : 'text-dark fw-bold linkText'" (click) = "changeAuthBloodBank()">BLOODBANK</a>
+           </div>
+          </div>
+          <div class="spacer"></div>
+
+          <div class="form-outline mb-4">
+            <input type="email" id="form3Example3" class="form-control form-control-lg" formControlName = "username"
+              placeholder="Enter a Valid Username" [ngClass]="{ 'is-invalid': submitted && form.username.errors }"/>
+            <label class="form-label" for="form3Example3">UserName</label>
+            <div *ngIf="submitted && form.username.errors" class="invalid-feedback">
+              <div *ngIf="form.username.errors.required" class="text-danger">Username  is required</div>
+          </div>
+          </div>
+
+          <div class="form-outline mb-3">
+            <input type="password" id="form3Example4" class="form-control form-control-lg" formControlName = "password"
+              placeholder="Enter password" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
+            <label class="form-label" for="form3Example4">Password</label>
+            <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+              <div *ngIf="form.password.errors.required" class="text-danger">Password  is required</div>
+          </div>
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <input type="submit" value="Login" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a routerLink = "/Register"
+                class="link-danger">Register</a></p>
+          </div>
+
+        </form>
       </div>
     </div>
   </div>
-</div> -->
+ 
+</section>

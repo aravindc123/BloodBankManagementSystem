@@ -1,6 +1,6 @@
-   <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow p-3 ">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 ">
     <div class="container-fluid">
-      <a class="navbar-brand text-light fw-bold" href=""><span class="text-danger">Blood</span> Value</a>
+      <a class="navbar-brand text-dark fw-bold" href=""><span class="text-danger">Blood</span> Value</a>
        
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,30 +8,30 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link active text-light" aria-current="page" routerLink = "">Home</a>
+                  <a class="nav-link active text-dark" aria-current="page" routerLink = ""><i class="fas fa-home"></i>&nbsp;Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Services
+                  <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-concierge-bell"></i>&nbsp; Services
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" routerLink = "/SearchDonors">Search Donors</a></li>
-                    <li><a class="dropdown-item" routerLink = "/SearchBloodBank">Search Blood Banks</a></li>
+                    <li><a class="dropdown-item" routerLink = "/SearchDonors"><i class="fas fa-users"></i>&nbsp;Search Donors</a></li>
+                    <li><a class="dropdown-item" routerLink = "/SearchBloodBank"><i class="fas fa-university"></i>&nbsp;Search Blood Banks</a></li>
                   
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" routerLink = "/AboutUs">About Us</a>
+                  <a class="nav-link text-dark" routerLink = "/AboutUs"><i class="fas fa-users-cog"></i> &nbsp;About Us</a>
                 </li>
                 <li class="nav-item dropdown" *ngIf = "UserLoggedIn; else loginBlock">
-                  <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span >{{ User }}</span>
+                  <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span ><i class="fas fa-user"></i>&nbsp;{{ User }}</span>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li *ngIf = "getRole == 'User'"><a class="dropdown-item" routerLink = "/DonorProfile">Profile</a></li>
-                    <li *ngIf = "getRole == 'Admin'"><a class="dropdown-item" routerLink = "/admin">Admin Home</a></li>
-                    <li *ngIf = "getRole == 'BloodBank'"><a class="dropdown-item" routerLink = "/BloodBank">BloodBank Home</a></li>
-                    <li><a class="dropdown-item" (click) = "logout()">Logout</a></li>
+                    <li *ngIf = "getRole == 'User'"><a class="dropdown-item" routerLink = "/DonorProfile"><i class="fas fa-home"></i>&nbsp;Profile</a></li>
+                    <li *ngIf = "getRole == 'Admin'"><a class="dropdown-item" routerLink = "/admin"><i class="fas fa-home"></i>&nbsp;Admin Home</a></li>
+                    <li *ngIf = "getRole == 'BloodBank'"><a class="dropdown-item" routerLink = "/BloodBank"><i class="fas fa-home"></i>&nbsp;BloodBank Home</a></li>
+                    <li><a class="dropdown-item" (click) = "logout()"><i class="fas fa-sign-out-alt"></i> &nbsp;Logout</a></li>
                 
                   </ul>
                 </li>
@@ -39,7 +39,7 @@
 
               <ng-template #loginBlock>
                   <li class="nav-item">
-                    <a class="nav-link text-light" routerLink = "/Login">Login</a>
+                    <a class="nav-link text-dark" routerLink = "/Login">Login</a>
                     </li>
               </ng-template>
               </ul>

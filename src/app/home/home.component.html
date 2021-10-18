@@ -1,93 +1,109 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="/assets/blood1.jpg" class="d-block w-100  crouselImage" >
-      </div>
-      <div class="carousel-item">
-        <img src="/assets/blood2.jpg" class="d-block w-100 crouselImage" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="/assets/blood3.jpg" class="d-block w-100 crouselImage" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+<div style="background-image: url(/assets/logo.jpeg);opacity: 70%;" id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   
-  <h1 class="text-dark d-flex justify-content-center m-4">Notifications</h1>
-  <div class="center">
-  <div class="container justify-content-center">
-  <div class="notifiationArea row ">
-    <div *ngFor = "let item of notificationData" class="col-md-3 col-sm-12">
-  <!-- <app-notification-cards  [value]="'Vaccination Drive'"></app-notification-cards> -->
-  <div class="card shadow mb-3" style="max-width: 18rem;">
-    <div class="card-header text-dark fw-bold">{{ item.Title }}</div>
-    <div class="card-body text-primary">
-      <h5 class="card-title">{{ item.Title }}</h5>
-      <p class="card-text">{{ item.Content }}</p>
+  <div class="carousel-indicators">
+
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" style="width: 80%;padding-left: 300px;">
+    <div class="carousel-item active">
+      <div class="carousel-caption">
+        <h3 style="color: black;">"Excuses never save a life, Blood donation does."</h3>
+      </div>
+      <img src="/assets/donor.jpeg" class="d-block w-100  crouselImage" >
+  
     </div>
+    <div class="carousel-item">
+      <div class="carousel-caption">
+        <h3 style="color: black;">"Sometimes money cannot save life but donated blood can".</h3>
+      </div>
+      <img  src="/assets/donation.jpeg" class="d-block w-100 crouselImage" alt="...">
+     
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-caption">
+        <h3 style="color: black;">"It feels good, It makes me Proud, I am a blood donor.”</h3>
+      </div>
+      <img src="/assets/needle.jpeg" class="d-block w-100 crouselImage" alt="...">
+     
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="bg-info shadow d-flex justify-content-center m-4 "  style = "padding: 10px; border-radius: 20px;">
+<h1  id="blink_me" class="text-light d-flex justify-content-center m-2 ">Notifications</h1>
+</div>
+
+<div class="center">
+<div class="container justify-content-center ">
+<div class="notifiationArea row  ">
+  <div *ngFor = "let item of notificationData" class="col-md-3 col-sm-12 ">
+<!-- <app-notification-cards  [value]="'Vaccination Drive'"></app-notification-cards> -->
+<div class="card shadow mb-3 " style="max-width: 18rem;background-color:rgb(232, 241, 241);">
+  <div style="background-color: rgb(92, 182, 235);" class="card-header text-light fw-bold">{{ item.Title }}</div>
+  <div class="card-body text-dark">
+    <h5 class="card-title">{{ item.Title }}</h5>
+    <p class="card-text">{{ item.Content }}</p>
+  </div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+<h1  class="text-light d-flex justify-content-center m-4 bg-info shadow" style = "padding: 20px; border-radius: 20px;">Donation Camps</h1>
+<div class="center">
+<div class="container justify-content-center">
+<div class="notifiationArea row ">
+  <div *ngFor = "let camp of donationCamps" class="col-md-4 col-sm-12">
+    
+<!-- <app-notification-cards  [value]="'Vaccination Drive'"></app-notification-cards> -->
+<div class="card text-white card-has-bg click-col" >
+  
+  <div style="background-color: tomato;opacity: 100%;" class="card-header text-dart fw-bold"><img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">{{ camp.BloodBankName }}</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title text-dark"><b>{{ camp.EventName }}</b></h5>
+    <p class="card-text text-dark"><b> <i class="fas fa-calendar-alt"></i> &nbsp; {{ camp.EventDate | date:'short' }}</b></p>
+    <p class="card-text text-dark"><B><i class="fas fa-window-close"></i> &nbsp;{{ camp.EventClosing | date : 'short' }}</B></p>
+    <p class="card-text text-dark"><B><i class="fas fa-compass"></i>&nbsp; {{ camp.City }}</B></p>
+    <p class="card-text text-dark"><B><i class="fas fa-stopwatch"></i>&nbsp; {{ camp.EventTime | date : 'h:mm:ss' }}</B></p>
+    <button style="margin-left: 100px;" class="btn btn-success" (click) = "changeEventId(camp.EventId)" data-toggle="modal" data-target="#exampleModalCenter"  >Register</button>
   </div>
 </div>
 
- 
-</div>
-</div>
-</div>
-<h1 class="text-dark d-flex justify-content-center m-4">Donation Camps</h1>
-  <div class="center">
-  <div class="container justify-content-center">
-  <div class="notifiationArea row ">
-    <div *ngFor = "let camp of donationCamps" class="col-md-4 col-sm-12">
-  <!-- <app-notification-cards  [value]="'Vaccination Drive'"></app-notification-cards> -->
-  <div class="card shadow mb-4" style="max-width: 28rem;">
-    <div class="card-header text-dark fw-bold">{{ camp.BloodBankName }}</div>
-    <div class="card-body text-primary">
-      <h5 class="card-title">{{ camp.EventName }}</h5>
-      <p class="card-text">Conducted on {{ camp.EventDate | date:'short' }}</p>
-      <p class="card-text">Registrations will close on {{ camp.EventClosing | date : 'short' }}</p>
-      <p class="card-text">Location : {{ camp.City }}</p>
-      <p class="card-text">Time : {{ camp.EventTime | date : 'h:mm:ss' }}</p>
-      <button class="btn btn-success" (click) = "changeEventId(camp.EventId)" data-toggle="modal" data-target="#exampleModalCenter"  >Register</button>
-    </div>
-  </div>
-
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h5 class="text-dark">Are you sure you want to register for the camp?</h5>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" (click) = "RegisterForDonationCamp(camp.EventId)" data-dismiss="modal">Yes</button>
-          <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-        </div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-dark">Are you sure you want to register for the camp?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click) = "RegisterForDonationCamp(camp.EventId)" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
       </div>
     </div>
   </div>
-
 </div>
 
- 
 </div>
-</div>
-</div>
-          
 
-  
+
+</div>
+</div>
+</div>
+        
