@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Notifications } from '../_models/notifications';
 import { CampRegister, Camps } from '../_models/camps';
-import { Donor } from '../_models/donor';
+import { DonationHistory, Donor } from '../_models/donor';
 import { BloodBank } from '../_models/blood-bank';
 
 @Injectable({
@@ -33,6 +33,10 @@ export class UserService {
 
   GetBloodBanks() : Observable<BloodBank[]>{
     return this.http.get<BloodBank[]>(this.url+"/GetBloodStock");
+  }
+
+  GetHistory(userId : number) : Observable<DonationHistory[]>{
+    return this.http.get<DonationHistory[]>(this.url+"/GetHistory/"+userId);
   }
 
 }

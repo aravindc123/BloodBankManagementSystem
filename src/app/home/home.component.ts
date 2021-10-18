@@ -14,17 +14,24 @@ export class HomeComponent implements OnInit {
   notificationData? : Notifications[];
   donationCamps? : Camps[];
   UserId? : number;
+  eventId! : number;
 
   constructor(private userService : UserService,private router : Router) { 
-    if(localStorage.getItem('isUserLoggedIn') == "true" && localStorage.getItem('role') == "user"){
+    if(localStorage.getItem('isUserLoggedIn') == "true" && localStorage.getItem('role') == "User"){
       let data = JSON.parse(localStorage.getItem('User')!);
+     
       this.UserId = data.UserId;
+      console.log(this.UserId);
     }
   }
 
   ngOnInit(): void {
     this.GetAllNotifications();
     this.GetAllDonationCamps();
+  }
+
+  changeEventId(eventId : any){
+    this.eventId = eventId;
   }
 
   GetAllNotifications(){
@@ -40,8 +47,9 @@ export class HomeComponent implements OnInit {
   }
 
   RegisterForDonationCamp(eventId : any){
+    console.log(this.eventId);
     let camp : CampRegister = {
-      EventId : eventId,
+      EventId : this.eventId,
       UserId : this.UserId,
       IsDonated : 0
     };

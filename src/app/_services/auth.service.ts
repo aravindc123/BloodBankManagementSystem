@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable , of  } from 'rxjs';
 import { tap , delay, map, catchError } from 'rxjs/operators';
-import { Donor, DonorLoginCredential } from '../_models/donor';
+import { BloodBankReg } from '../_models/blood-bank';
+import { Donor, DonorLoginCredential, DonorReg } from '../_models/donor';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,14 @@ export class AuthService {
         console.log(user);
       }
     }));
+  }
+
+  RegisterBloodBank(bloodBank : BloodBankReg) : Observable<any>{
+    return this.http.post(this.url+"/RegisterBloodBank",bloodBank);
+  }
+
+  RegisterDonor(donor : DonorReg) : Observable<any>{
+    return this.http.post(this.url+"/RegisterDonor",donor);
   }
 
   logout(){

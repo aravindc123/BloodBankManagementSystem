@@ -27,3 +27,11 @@ export class BloodStock{
     ABNegative? : number; 
     ONegative? : number; 
 }
+
+export class BloodBankReg{
+    BloodBankId? : number; 
+    BloodBankName? : string; 
+    Password? : string; 
+    City? : string; 
+    Contact? : number; 
+}
