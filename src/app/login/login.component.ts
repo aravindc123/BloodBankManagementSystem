@@ -78,9 +78,11 @@ export class LoginComponent implements OnInit {
         this.authService.BloodBankLogin(blood).subscribe(
           data => {
             if(this.authService.IsLoggedIn() == true){
+              console.log("Hello")
               this.router.navigate(['/BloodBank']);
             }
             else{
+              console.log("HelloWorld");
               alert("Username or Password is incorrect..!");
             }
           },

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h1 class="text-dark"><i class="fas fa-university"></i> &nbsp;Search For Blood Banks </h1>
   <h3 class="text-dark">In your Area</h3>
   
@@ -56,4 +56,70 @@
       </tr>
       
     </tbody>
+  </table> -->
+
+  
+<div class="container">
+   
+  <div class="text-center">
+    <img src="/assets/icon1.PNG" class="rounded" alt="..." width="200" height="200" >
+    <h1 class="text-center">Search For Blood Banks </h1>
+  </div>
+  
+
+</div>
+
+  
+  <div class="row m-2">
+    <div class="col-md-4">
+      <select class="form-select" [(ngModel)] = "city" aria-label="Default select example" (change) = "changeCity($event)">
+        <option value="" selected>Select City</option>
+        <option value="Trivandrum " >Trivandrum </option>
+        <option value="Kollam" >Kollam</option>
+        <option value="Pathanamthitta" >Pathanamthitta</option>
+        <option value="Wayanad" >Wayanad</option>
+        <option value="Kottayam" >Kottayam</option>
+        <option value="Ernakulam" >Ernakulam</option>
+        <option value="Alappuzha" >Alappuzha</option>
+        <option value="Idukki" >Idukki</option>
+        </select>
+  </div>
+  
+  </div>
+  <div class="spacer"></div>
+  <table class="table table-hover" >
+    <thead class="thead-dark">
+      <tr class="text-center">
+        <th scope="col">BloodBank ID</th>
+        <th scope="col">BloodBank Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Contact</th>
+        <th scope="col">A+</th>
+        <th scope="col">B+</th>
+        <th scope="col">O+</th>
+        <th scope="col">AB+</th>
+        <th scope="col">A-</th>
+        <th scope="col">B-</th>
+        <th scope="col">O-</th>
+        <th scope="col">AB-</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center" *ngFor = "let item of bloodBankDetails">
+        <th scope="row">{{ item.BloodBankId }}</th>
+        <td>{{ item.BloodBankName }}</td>
+        <td>{{ item.City }}</td>
+        <td>{{ item.Contact }}</td>
+        <td>{{ item.APositive }}</td>
+        <td>{{ item.BPositive }}</td>
+        <td>{{ item.OPositive }}</td>
+        <td>{{ item.ABPositive }}</td>
+        <td>{{ item.ANegative }}</td>
+        <td>{{ item.BNegative }}</td>
+        <td>{{ item.ONegative }}</td>
+        <td>{{ item.ABNegative }}</td>
+      </tr>
+      
+    </tbody>
   </table>
+

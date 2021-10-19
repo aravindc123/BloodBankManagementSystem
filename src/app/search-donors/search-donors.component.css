@@ -1,4 +1,6 @@
+
 .container {
+  color: rgb(104, 24, 24);
 	width: 1024px;
 	padding: 2em;
 }
@@ -15,3 +17,6 @@ table {
   .spacer{
     height: 20px;
 }
+select { width: 400px; text-align-last: auto; }
+
+

@@ -16,6 +16,9 @@ export class AddCampComponent implements OnInit {
   addCampForm! : FormGroup;
   submitted = false;
   registeredDonors? : EventRegister[];
+  currentDate? : Date = new Date();
+  status = true;
+  eventDate? : any;
 
   constructor(private bloodBankService : BloodBankService,private formBuilder : FormBuilder) {
     let data = JSON.parse(localStorage.getItem('User')!); 
@@ -37,6 +40,7 @@ export class AddCampComponent implements OnInit {
   }
 
   GetAllCamps(){
+    console.log(this.currentDate);
     this.bloodBankService.GetAllCamps(this.bloodBankId).subscribe(data => {
       this.camps = data;
     })
@@ -48,6 +52,15 @@ export class AddCampComponent implements OnInit {
       Date.UTC(_date.getFullYear(), _date.getMonth(), _date.getDate())
     );
   };
+
+  // checkCurrentDate(date : any) : boolean{
+  //   console.log(this.GetDate(this.eventDate).toJSON("yyyy/MM/dd").toLocaleString());
+  //   console.log(this.GetDate(this.eventDate).toJSON("yyyy/MM/dd"));
+  //   console.log(this.GetDate(this.eventDate).toJSON("yyyy/MM/dd").toLocaleString() == this.GetDate(this.eventDate).toJSON("yyyy/MM/dd").toLocaleString());
+  //   this.status = !this.GetDate(this.eventDate).toJSON("yyyy/MM/dd") == this.GetDate(this.eventDate).toJSON("yyyy/MM/dd");
+  //   console.log(this.status);
+  //   return !this.GetDate(this.eventDate).toJSON("yyyy/MM/dd") == this.GetDate(this.eventDate).toJSON("yyyy/MM/dd");
+  // }
 
   onSubmit(event : any){
     if(this.addCampForm.invalid){
@@ -80,11 +93,13 @@ export class AddCampComponent implements OnInit {
     }
   }
 
-  GetAllRegisteredDonors(eventId : any){
+  GetAllRegisteredDonors(eventId : any,eventDate : any){
     this.bloodBankService.GetAllRegisteredDonors(eventId).subscribe((data) => {
       console.log(data);
       this.registeredDonors = data;
       this.eventId = eventId;
+      this.eventDate = eventDate;
+      // this.checkCurrentDate(eventDate);
     })
   }
 
@@ -97,7 +112,7 @@ export class AddCampComponent implements OnInit {
     };
     this.bloodBankService.MarkDonated(camp).subscribe((data : any) => {
       if(data){
-        this.GetAllRegisteredDonors(this.eventId);
+        this.GetAllRegisteredDonors(this.eventId,this.eventDate);
       }
     })
   }

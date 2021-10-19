@@ -18,10 +18,13 @@ export class AuthService {
   BloodBankLogin(bloodBank : DonorLoginCredential){
     return this.http.post(this.url+"/LoginBloodBank",bloodBank)
     .pipe(map(blood => {
-      if(blood != null){
+      if(blood != false){
         localStorage.setItem('isUserLoggedIn',"true");
         localStorage.setItem('User',JSON.stringify(blood));
         localStorage.setItem('role','BloodBank');
+      }
+      else{
+        localStorage.setItem('isUserLoggedIn','false');
       }
     }));
   }
@@ -34,13 +37,13 @@ export class AuthService {
   DonorLogin(donorLogin : DonorLoginCredential) {
     return this.http.post(this.url+"/login",donorLogin)
     .pipe(map(user => {
-      if(user != null){
+      if(user != false){
         localStorage.setItem('isUserLoggedIn',"true");
         localStorage.setItem('User',JSON.stringify(user));
         localStorage.setItem('role','User');
         console.log(user);
       }
-      else{
+      else {
         localStorage.setItem('isUserLoggedIn',"false");
       }
     }));

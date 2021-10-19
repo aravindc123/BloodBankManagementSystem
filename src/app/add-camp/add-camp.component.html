@@ -65,11 +65,11 @@
         <th scope="row">{{ item.EventId }}</th>
         <td>{{ item.EventName }}</td>
         <td>{{ item.City }}</td>
-        <td>{{ GetDate(item.EventDate) | date : 'dd-mm-yyyy' }}</td>
-        <td>{{ GetDate(item.EventClosing)| date : 'dd-mm-yyyy'}}</td>
+        <td>{{ GetDate(item.EventDate) | date}}</td>
+        <td>{{ GetDate(item.EventClosing)| date }}</td>
         <td>{{ item.EventTime | date : 'shortTime' }}</td>
         <td><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"  >Delete</button></td>
-        <td><button class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg" (click) = "GetAllRegisteredDonors(item.EventId)"  >View</button></td>
+        <td><button class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg" (click) = "GetAllRegisteredDonors(item.EventId,item.EventDate)"  >View</button></td>
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -104,12 +104,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor = "let item of registeredDonors">
-                            <th scope="row">{{ item.RegId }}</th> 
-                            <th scope="row">{{ item.UserName }}</th> 
-                            <th scope="row">{{ item.AadharNumber }}</th> 
-                            <th scope="row">{{ item.Contact }}</th> 
-                            <th scope="row"><button (click) = "MarkDonated(item.RegId,item.UserId)" *ngIf = "item.IsDonated == 0" class="btn btn-warning" >Mark Donated</button> <span *ngIf = "item.IsDonated == 1" class="text-warning fw-bold">Donated</span></th> 
+                        <tr *ngFor = "let items of registeredDonors">
+                            <th scope="row">{{ items.RegId }}</th> 
+                            <th scope="row">{{ items.UserName }}</th> 
+                            <th scope="row">{{ items.AadharNumber }}</th> 
+                            <th scope="row">{{ items.Contact }}</th> 
+                            <th scope="row"><button  (click) = "MarkDonated(items.RegId,items.UserId)" *ngIf = "items.IsDonated == 0" class="btn btn-warning" >Mark Donated</button> <span *ngIf = "items.IsDonated == 1" class="text-warning fw-bold">Donated</span></th> 
                         </tr>
                     </tbody>
                     </table>
