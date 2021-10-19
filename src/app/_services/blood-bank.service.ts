@@ -37,4 +37,8 @@ export class BloodBankService {
     return this.http.put(this.url+"/MarkDonated",camp);
   }
 
+  DeleteCamp(eventId : any) : Observable<any>{
+    return this.http.delete(this.url+"/DeleteEvent/"+eventId);
+  }
+
 }

@@ -19,6 +19,7 @@ export class AddCampComponent implements OnInit {
   currentDate? : Date = new Date();
   status = true;
   eventDate? : any;
+  changeEventId? : any;
 
   constructor(private bloodBankService : BloodBankService,private formBuilder : FormBuilder) {
     let data = JSON.parse(localStorage.getItem('User')!); 
@@ -115,6 +116,16 @@ export class AddCampComponent implements OnInit {
       if(data){
         this.GetAllRegisteredDonors(this.eventId,this.eventDate);
       }
+    })
+  }
+
+  changeDeleteEventId(eventId : any){
+    this.changeEventId = eventId;
+  }
+
+  DeleteCamp(){
+    this.bloodBankService.DeleteCamp(this.changeEventId).subscribe(data => {
+      this.GetAllCamps();
     })
   }
 
