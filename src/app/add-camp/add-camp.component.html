@@ -7,35 +7,50 @@
     <div class="row">
         <div class="col-md-6">
             <label for="EventName" class="text-dark">Event Name</label>
-            <input type="text" name="" id="" class="form-control" formControlName = "EventName">
+            <input type="text" name="" id="" class="form-control" formControlName = "EventName" [ngClass]="{ 'is-invalid': submitted && form.EventName.errors }">
+            <div *ngIf="submitted && form.EventName.errors" class="invalid-feedback">
+              <div *ngIf="form.EventName.errors.required" class="text-danger">EventName  is required</div>
+          </div>
         </div>
     </div>
     <div class="spacer"></div>
     <div class="row">
         <div class="col-md-6">
             <label for="EventDate" class="text-dark">Event Date</label>
-            <input type="date" name="" id="" class="form-control" formControlName = "EventDate">
+            <input type="date" name="" id="" class="form-control" formControlName = "EventDate" [ngClass]="{ 'is-invalid': submitted && form.EventDate.errors }">
+            <div *ngIf="submitted && form.EventDate.errors" class="invalid-feedback">
+              <div *ngIf="form.EventDate.errors.required" class="text-danger">Event Date  is required</div>
+          </div>
         </div>
     </div>
     <div class="spacer"></div>
     <div class="row">
         <div class="col-md-6">
             <label for="EventTime" class="text-dark">Event Time</label>
-            <input type="time" name="" id="" class="form-control" formControlName = "EventTime">
+            <input type="time" name="" id="" class="form-control" formControlName = "EventTime" [ngClass]="{ 'is-invalid': submitted && form.EventTime.errors }">
+            <div *ngIf="submitted && form.EventTime.errors" class="invalid-feedback">
+              <div *ngIf="form.EventTime.errors.required" class="text-danger">Event Time  is required</div>
+          </div>
         </div>
     </div>
     <div class="spacer"></div>
     <div class="row">
         <div class="col-md-6">
             <label for="EventClosingDate" class="text-dark">Event Closing Date</label>
-            <input type="date" name="" id="" class="form-control" formControlName = "EventClosing">
+            <input type="date" name="" id="" class="form-control" formControlName = "EventClosing" [ngClass]="{ 'is-invalid': submitted && form.EventClosing.errors }">
+            <div *ngIf="submitted && form.EventClosing.errors" class="invalid-feedback">
+              <div *ngIf="form.EventClosing.errors.required" class="text-danger">Event Closing is required</div>
+          </div>
         </div>
     </div>
     <div class="spacer"></div>
     <div class="row">
         <div class="col-md-6">
             <label for="EventPlace" class="text-dark" >Event Place</label>
-         <input type="text" name="" id="" class="form-control" formControlName = "EventPlace">
+         <input type="text" name="" id="" class="form-control" formControlName = "EventPlace" [ngClass]="{ 'is-invalid': submitted && form.EventPlace.errors }">
+         <div *ngIf="submitted && form.EventPlace.errors" class="invalid-feedback">
+          <div *ngIf="form.EventPlace.errors.required" class="text-danger">Event Place  is required</div>
+      </div>
         </div>
     </div>
     <div class="spacer"></div>
@@ -56,7 +71,6 @@
         <th scope="col">Event Date</th>
         <th scope="col">Event Closing</th>
         <th scope="col">Event Time</th>
-        <th scope = "col">Delete</th>
         <th scope = "col">View Registrations</th>
       </tr>
     </thead>
@@ -68,7 +82,6 @@
         <td>{{ GetDate(item.EventDate) | date}}</td>
         <td>{{ GetDate(item.EventClosing)| date }}</td>
         <td>{{ item.EventTime | date : 'shortTime' }}</td>
-        <td><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"  >Delete</button></td>
         <td><button class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg" (click) = "GetAllRegisteredDonors(item.EventId,item.EventDate)"  >View</button></td>
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">

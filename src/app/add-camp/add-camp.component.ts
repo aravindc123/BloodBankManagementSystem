@@ -63,6 +63,7 @@ export class AddCampComponent implements OnInit {
   // }
 
   onSubmit(event : any){
+    this.submitted = true;
     if(this.addCampForm.invalid){
       return;
     }
