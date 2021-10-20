@@ -32,7 +32,7 @@ const routes: Routes = [
   {path : 'SearchDonors',component : SearchDonorsComponent},
   {path : 'SearchBloodBank',component : SearchBloodBanksComponent},
   { path : 'Register', component : RegisterComponent },
-  {path : 'DonorProfile',component : DonorProfileComponent},
+  {path : 'DonorProfile',component : DonorProfileComponent,canActivate : [AuthGuard],data : {role:'User'}},
   {path : 'AboutUs',component : AboutUsComponent}
 ];
 
